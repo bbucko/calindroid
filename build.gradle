@@ -42,8 +42,10 @@ dependencies {
     testCompile 'junit:junit:4.10'
     testCompile 'org.robolectric:robolectric:2.2'
     testCompile 'com.squareup:fest-android:1.0.+'
+    testCompile 'org.mockito:mockito-core:1.9.+'
 
     instrumentTestCompile 'junit:junit:4.10'
     instrumentTestCompile 'org.robolectric:robolectric:2.2'
     instrumentTestCompile 'com.squareup:fest-android:1.0.+'
+    instrumentTestCompile 'org.mockito:mockito-core:1.9.+'
 }
