@@ -1,0 +1,49 @@
+group = 'pl.iogreen.calindroid'
+version = '0.0.1-SNAPSHOT'
+
+buildscript {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.6.+'
+        classpath 'com.github.jcandksolutions.gradle:android-unit-test:1.0.+'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'android'
+
+android {
+    buildToolsVersion '19.0.0'
+    compileSdkVersion 'android-16'
+
+    defaultConfig {
+        packageName 'pl.iogreen.calindroid'
+    }
+
+    buildTypes {
+        release {
+            runProguard false
+            proguardFile getDefaultProguardFile('proguard-android.txt')
+        }
+    }
+}
+
+apply plugin: 'android-unit-test'
+
+dependencies {
+    compile 'org.roboguice:roboguice:2.0'
+
+    testCompile 'junit:junit:4.10'
+    testCompile 'org.robolectric:robolectric:2.2'
+    testCompile 'com.squareup:fest-android:1.0.+'
+
+    instrumentTestCompile 'junit:junit:4.10'
+    instrumentTestCompile 'org.robolectric:robolectric:2.2'
+    instrumentTestCompile 'com.squareup:fest-android:1.0.+'
+}
