@@ -9,14 +9,19 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:0.6.+'
         classpath 'com.github.jcandksolutions.gradle:android-unit-test:1.0.+'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:0.6.+'
     }
 }
 
 repositories {
     mavenCentral()
+    maven {
+        url 'http://oss.sonatype.org/content/repositories/snapshots'
+    }
 }
 
 apply plugin: 'android'
+apply plugin: 'kotlin-android'
 
 android {
     buildToolsVersion '19.0.0'
@@ -32,14 +37,26 @@ android {
             proguardFile getDefaultProguardFile('proguard-android.txt')
         }
     }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    compileOptions {
+        encoding 'UTF-8'
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
 }
 
 apply plugin: 'android-unit-test'
 
 dependencies {
     compile 'org.roboguice:roboguice:2.0'
+    compile 'org.jetbrains.kotlin:kotlin-stdlib:0.6.+'
 
-    testCompile 'junit:junit:4.10'
+    testCompile 'junit:junit:4.+'
     testCompile 'org.robolectric:robolectric:2.2'
     testCompile 'com.squareup:fest-android:1.0.+'
     testCompile 'org.mockito:mockito-core:1.9.+'

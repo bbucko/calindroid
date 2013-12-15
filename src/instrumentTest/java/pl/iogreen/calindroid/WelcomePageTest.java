@@ -9,13 +9,13 @@ import android.test.ActivityInstrumentationTestCase2;
  * <p/>
  * To run this test, you can type:
  * adb shell am instrument -w \
- * -e class pl.iogreen.calindroid.CalindroidTest \
+ * -e class pl.iogreen.calindroid.WelcomePageTest \
  * pl.iogreen.calindroid.tests/android.test.InstrumentationTestRunner
  */
-public class CalindroidTest extends ActivityInstrumentationTestCase2<Calindroid> {
+public class WelcomePageTest extends ActivityInstrumentationTestCase2<WelcomePage> {
 
-    public CalindroidTest() {
-        super(Calindroid.class);
+    public WelcomePageTest() {
+        super(WelcomePage.class);
     }
 
 }
